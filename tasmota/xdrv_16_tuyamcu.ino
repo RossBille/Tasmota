@@ -1034,12 +1034,6 @@ void TuyaSetWifiLed(void)
 {
   Tuya.wifi_state = TuyaGetTuyaWifiState();
   AddLog_P2(LOG_LEVEL_DEBUG, PSTR("TYA: Set WiFi LED %d (%d)"), Tuya.wifi_state, WifiState());
-
-  if (Tuya.low_power_mode) {
-    TuyaSendCmd(TUYA_LOW_POWER_CMD_WIFI_STATE, &Tuya.wifi_state, 1);
-  } else {
-    TuyaSendCmd(TUYA_CMD_WIFI_STATE, &Tuya.wifi_state, 1);
-  }
 }
 
 #ifdef USE_TUYA_TIME
